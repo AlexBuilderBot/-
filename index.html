@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alex Builder — Foydalanish Shartlari</title>
+<style>
+:root{--bg:#f8fafc;--card:#fff;--tx:#334155;--hd:#1e293b;--mu:#64748b;--bd:#e2e8f0;--pr:#2563eb;--tb:#f1f5f9;--tip:#eff6ff}
+@media(prefers-color-scheme:dark){:root{--bg:#0f172a;--card:#1e293b;--tx:#cbd5e1;--hd:#f1f5f9;--mu:#94a3b8;--bd:#334155;--tb:#273449;--tip:#1e3a5f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.75 Roboto,-apple-system,"Segoe UI",Arial,sans-serif;letter-spacing:.2px}
+header{background:linear-gradient(135deg,#1e40af,#2563eb 50%,#3b82f6);color:#fff;text-align:center;padding:64px 20px 56px}
+header small{letter-spacing:6px;font-size:15px;opacity:.85}
+header h1{margin:18px 0 20px;font-size:36px}
+header p{margin:0;opacity:.85;font-size:18px}
+main{max-width:760px;margin:0 auto;padding:0 16px 40px}
+.note,.warn,.tip{border-radius:16px;padding:20px 24px;margin:28px 0}
+.note{background:#fef9e7;border:1px solid #fde8a8;border-left:5px solid #f59e0b;color:#92400e;margin-top:30px}
+.warn{background:#fef0f0;border:1px solid #fbcfcf;color:#991b1b}
+.tip{background:var(--tip);border:1px solid #bfdbfe;margin:20px 0 0}
+@media(prefers-color-scheme:dark){.note{background:#3a2e12;color:#fcd34d}.warn{background:#3b1818;color:#fca5a5}}
+section{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:28px 24px;margin:20px 0}
+.h{display:flex;gap:16px;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--bd);margin-bottom:20px}
+.n{flex:none;width:60px;height:60px;border-radius:14px;background:var(--pr);color:#fff;font-weight:700;font-size:20px;display:grid;place-items:center}
+.h b{display:block;color:var(--hd);font-size:21px;line-height:1.3}
+.h span{color:var(--mu);font-size:16px}
+p{margin:0 0 18px}
+.c{color:var(--pr);font-weight:700;margin-right:12px}
+ul{padding-left:30px;margin:0 0 18px}
+li{margin-bottom:10px}
+li::marker{color:var(--pr)}
+b{color:var(--hd)}
+a{color:var(--pr)}
+details{border:1px solid var(--bd);border-radius:12px;margin:10px 0;background:var(--bg)}
+summary{padding:12px 16px;cursor:pointer;font-weight:700;color:var(--hd)}
+details div{padding:0 16px 8px;font-size:15px}
+details div p{margin:0 0 12px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:12px}
+.chips button{flex:none;border:1px solid var(--bd);background:var(--tb);color:var(--tx);border-radius:20px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer}
+.chips button.on{background:var(--pr);color:#fff;border-color:var(--pr)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.t{border:1px solid var(--bd);border-radius:14px;padding:14px 16px;background:var(--bg);font-size:15px;line-height:1.6}
+.t h4{margin:0 0 4px;color:var(--hd);font-size:17px}
+.t em{display:block;font-style:normal;margin-bottom:6px}
+.t i{display:block;font-style:normal}
+.tw{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;min-width:480px}
+th,td{border:1px solid var(--bd);padding:10px 14px;text-align:left;vertical-align:top;font-size:15px}
+th{background:var(--tb);color:var(--hd)}
+.p{border-radius:20px;padding:4px 14px;font-weight:700;font-size:14px;white-space:nowrap}
+.g{background:#dcfce7;color:#15803d}.o{background:#ffedd5;color:#c2410c}.r{background:#fee2e2;color:#b91c1c}
+.ok{background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;border-radius:16px;padding:20px 24px;margin:20px 0 0}
+@media(prefers-color-scheme:dark){.ok{background:#12322a;color:#6ee7b7;border-color:#1f5c4a}}
+.ct{display:flex;gap:16px;align-items:center;border:1px solid var(--bd);border-radius:14px;padding:18px 20px;margin:0 0 14px;text-decoration:none;color:inherit}
+.ct span{font-size:34px}.ct small{display:block;color:var(--mu);font-size:15px}.ct b{font-size:19px}
+footer{max-width:760px;margin:0 auto;padding:0 16px calc(30px + env(safe-area-inset-bottom,0px));text-align:center;color:var(--mu);font-size:15px}
+footer hr{border:0;border-top:1px solid var(--bd);margin:10px 0 30px}
+footer div{margin-top:60px;padding-top:30px;border-top:1px solid var(--bd)}
+:root{padding-top:env(safe-area-inset-top,0)}
+</style>
+</head>
+<body>
+<header><small>ALEX BUILDER</small><h1>Foydalanish Shartlari</h1><p>Oxirgi yangilanish: 3 Noyabr, 2026 &nbsp;·&nbsp; O'zbek tili</p></header>
+<main>
+<div class="note"><b style="color:#92400e">Muhim:</b> Alex Builder xizmatidan foydalanishni davom ettirar ekansiz, ushbu shartlarni to'liq o'qib, tushunib, <b style="color:#92400e">so'zsiz qabul qilgan</b> hisoblanasiz. Iltimos, har bir bo'limni diqqat bilan o'qing.</div>
+
+<section><div class="h"><div class="n">1</div><div><b>Kirish va kelishuv tomonlari</b><span>Kim bilan shartnoma tuzmoqdasiz</span></div></div>
+<p><span class="c">1.1</span>Ushbu <b>Foydalanish Shartlari</b> ("Shartlar") — Siz ("Foydalanuvchi") va <b>Alex Builder</b> platformasi ("Xizmat", "Biz") o'rtasidagi yuridik jihatdan majburiy kelishuv hisoblanadi. Alex Builder — Telegram orqali botlar yaratish, joylash va boshqarish imkonini beruvchi avtomatlashtirilgan platforma bo'lib, <a href="https://alexbuilder.app">alexbuilder.app</a> domenida joylashgan va asosiy boti <a href="https://t.me/AlexBuilderBot">@AlexBuilderBot</a> orqali ishlaydi.</p>
+<p><span class="c">1.2</span>Xizmatga birinchi marta murojaat qilganingizda yoki botdan foydalanishni boshlagan paytingizda ushbu Shartlarni <b>qabul qilgan</b> hisoblanasiz. Kelishmagan bo'lsangiz — xizmatdan foydalanmang va barcha yaratilgan loyihalaringizni o'chirib, savollaringiz bo'lsa support bilan bog'laning.</p>
+<p><span class="c">1.3</span>Ushbu Shartlar O'zbekiston Respublikasining amaldagi qonunchiligiga muvofiq tuzilgan. Xizmat O'zbekiston hududida faoliyat yuritadi va O'zbekiston Respublikasi qonunlari asosida tartibga solinadi.</p></section>
+
+<section><div class="h"><div class="n">2</div><div><b>Xizmatning mohiyati va imkoniyatlari</b><span>Nima taqdim etiladi</span></div></div>
+<p><span class="c">2.1</span><b>Alex Builder</b> — Telegram platformasi orqali foydalanuvchilarga tayyor skriptlar asosida o'z loyihalarini yaratish, sozlash va boshqarish imkonini beruvchi SaaS (Software-as-a-Service) tipdagi xizmatdir.</p>
+<p><span class="c">2.2</span><b>Bot turlari.</b> Xizmatda quyidagi turdagi botlar yaratish imkoni mavjud (batafsil ko'rish uchun bosing):</p>
+<div id="bots"></div>
+<p style="margin-top:18px"><span class="c">2.3</span><b>Asosiy funksiyalar:</b></p>
+<ul><li>Loyiha tokenini kiritish va loyihani serverga avtomatik joylash (deploy)</li><li>Webhook o'rnatish, yangilash va o'chirish</li><li>Tarif va plan tanlash, o'zgartirish</li><li>Loyiha muddatini uzaytirish va to'lov boshqaruvi</li><li>Loyiha egasini (owner) o'tkazish</li><li>Skriptni yangi versiyaga yangilash</li><li>Foydalanuvchi balansi va referral tizimi</li><li>Loyiha faoliyatini to'xtatish yoki to'liq o'chirish</li><li>Kanal/guruh obuna tekshiruvi (joinchat)</li><li>Admin panel orqali xabar yuborish va boshqarish</li></ul>
+<p><span class="c">2.4</span>Xizmat <b>texnik platforma</b> sifatida ishlaydi — skriptlar saqlanadi va joylashtiriladi. Loyiha orqali amalga oshirilgan tijorat operatsiyalari, kontent va foydalanuvchilar bilan munosabatlar to'liq Loyiha Egasining mas'uliyatida qoladi.</p>
+<p><span class="c">2.5</span>Xizmat istalgan vaqtda funksiyalarni qo'shishi, o'zgartirishi yoki olib tashlashi mumkin. Muhim o'zgarishlar oldindan e'lon qilinadi.</p></section>
+
+<section><div class="h"><div class="n">3</div><div><b>Ro'yxatdan o'tish, tokenlar va majburiyatlar</b><span>Hisob va autentifikatsiya xavfsizligi</span></div></div>
+<p><span class="c">3.1</span>Xizmatdan foydalanish uchun ro'yxatdan o'tish talab qilinmaydi — Telegram hisobingiz orqali <a href="https://t.me/AlexBuilderBot">@AlexBuilderBot</a> ga murojaat qilsangiz, tizim Sizni avtomatik aniqlaydi va hisob yaratadi. Siz kiritgan Telegram ID va ism platformaning asosiy identifikatori hisoblanadi.</p>
+<p><span class="c">3.2</span><b>Bot tokeni xavfsizligi.</b> Bot yaratish uchun Telegram BotFather'dan olingan maxfiy token kiritiladi. Ushbu tokenning xavfsizligi to'liq Sizning mas'uliyatingizda:</p>
+<ul><li>Tokenni hech kimga — do'stlarga, hamkasblarga, texnik yordamga ham — oshkor qilmang</li><li>Tokenni ijtimoiy tarmoqlarda, guruhlarda yoki ochiq kanallarda e'lon qilmang</li><li>Token oshkor bo'lsa, Xizmat bundan kelib chiqqan zarar uchun javobgar emas</li><li>Xizmatning rasmiy texnik yordami hech qachon tokeningizni so'ramaydi</li></ul>
+<p><span class="c">3.3</span><b>Token kompromat bo'lsa:</b> Darhol Telegram BotFather orqali tokenni yangilang, eski token uchun webhookni o'chiring va <a href="https://t.me/AlexBuilderChat">@AlexBuilderChat</a> ga xabar bering. Xizmatda tokenni yangilash funksiyasi mavjud.</p>
+<p><span class="c">3.4</span>Foydalanuvchi bir vaqtning o'zida bir nechta loyiha yaratishi va boshqarishi mumkin. Birinchi loyiha yaratish uchun skript narxi 0 so'm bo'lishi mumkin (agar skript bunga ruxsat bersa). Keyingi loyihalar uchun to'liq narx qo'llanadi.</p>
+<p><span class="c">3.5</span>Hisobingizni boshqasiga o'tkazish yoki umumiy foydalanish taqiqlanadi. Har bir Telegram hisob — alohida, shaxsiy Foydalanuvchi sifatida qabul qilinadi.</p></section>
+
+<section><div class="h"><div class="n">4</div><div><b>Taqiqlangan faoliyat va kontent</b><span>Qat'iy taqiqlar — buzilsa hisob darhol bloklanadi</span></div></div>
+<div class="warn">🚫 Quyidagi qoidalar <b style="color:inherit">qat'iy va muzokaraga ochiq emas</b>. Har qanday buzilish aniqlansa — ogohlantirishsiz va darhol hisobni bloklash, loyihalarni o'chirish va huquqiy organlarga murojaat qilish amalga oshiriladi.</div>
+<p><span class="c">4.1</span><b>18+ va bolalar xavfsizligi.</b> Xizmatni pornografik, jinsiy ekspluatatsiya, voyaga etmaganlar uchun zararli yoki 18+ kontent yaratish, tarqatish yoki reklama qilish maqsadida ishlatish mutlaqo taqiqlanadi. Bunday holatlar huquqni muhofaza qiluvchi organlarga topshiriladi.</p>
+<p><span class="c">4.2</span><b>Qimor va g'ayri-qonuniy pul tikish.</b> Qimor o'yinlari, stavka qo'yish, online casino yoki noqonuniy lotereyalarni boshqarish, reklama qilish yoki ularga yo'naltirish taqiqlanadi.</p>
+<p><span class="c">4.3</span><b>Firibgarlik va noqonuniy to'lovlar.</b> Aldatish, phishing, saxta to'lov talabnomalari, noqonuniy pul yig'ish yoki boshqa firibgarlik sxemalari qat'iyan taqiqlanadi.</p>
+<p><span class="c">4.4</span><b>Texnik hujumlar.</b> DDoS/DoS hujumlari, zararli dasturlar (malware, spyware, ransomware) tarqatish, tizimga ruxsatsiz kirish, loyihani spam mashina sifatida ishlatish taqiqlanadi.</p>
+<p><span class="c">4.5</span><b>Ruxsatsiz ommaviy xabarlar (Spam).</b> Foydalanuvchilar roziligisiz ommaviy reklama, spam xabarlar va so'ralmagan marketing tarqatish taqiqlanadi.</p>
+<p><span class="c">4.6</span><b>Shaxsiy ma'lumotlarni suiiste'mol qilish.</b> Boshqalarning shaxsiy ma'lumotlarini (telefon, manzil, moliyaviy ma'lumot va h.k.) ruxsatsiz yig'ish, saqlash, sotish yoki tarqatish taqiqlanadi.</p>
+<p><span class="c">4.7</span><b>Ekstremizm va zo'ravonlik.</b> Terrorchilikni, ekstremizmni, diniy yoki etnik nafratni qo'llab-quvvatlovchi yoxud zo'ravonlikni targ'ib qiluvchi kontent yaratish va tarqatish taqiqlanadi.</p>
+<p><span class="c">4.8</span><b>Mualliflik huquqini buzish.</b> Ruxsatsiz kontent, pirat filmlar, musiqa yoki dasturiy ta'minotni tarqatish taqiqlanadi. Kino botlari faqat qonuniy litsenziyalangan kontent asosida ishlashi kerak.</p>
+<p><span class="c">4.9</span><b>Oqibatlar.</b> Buzilish aniqlanganda Xizmat quyidagilarni amalga oshirish huquqiga ega: loyiha(lar)ni darhol to'xtatish va o'chirish; server fayllarini, webhookni va barcha resurslarni yo'q qilish; balansdagi mablag'ni muzlatish; hisobni muddatsiz bloklash; O'zbekiston Respublikasi huquqni muhofaza qiluvchi organlariga ma'lumot topshirish.</p></section>
+
+<section><div class="h"><div class="n">5</div><div><b>Tariflar va limitlar</b><span>Barcha planlar va ularning imkoniyatlari</span></div></div>
+<p><span class="c">5.1</span>Xizmatda har bir bot turi uchun alohida tariflar mavjud. Har bir tarif kunlik to'lov va limitlar bilan belgilanadi. Kunlik to'lov har kuni loyiha faoliyatda ekan, balansingizdan avtomatik yechiladi.</p>
+<div class="chips" id="chips"></div><div class="grid" id="tariffs"></div>
+<p style="margin-top:18px"><span class="c">5.2</span>Har bir skriptning asosiy narxi skript turiga qarab farq qiladi. Aniq narxlar loyiha yaratishda ko'rsatiladi. Tarif o'zgartirishda kamida <b>7 kunlik</b> mablag' balansingizda bo'lishi shart.</p>
+<p><span class="c">5.3</span>Tarifni istalgan tomonga o'zgartirish mumkin — yuqoriga (upgrade) ham, pastga (downgrade) ham. Tarif o'zgartirilganda oldingi muddatni hisobga olgan holda yangi narx bo'yicha 7 kunlik mablag' yechiladi.</p>
+<p><span class="c">5.4</span>Limit chegarasiga yetganda loyiha avtomatik ravishda yangi foydalanuvchilarga javob berishni to'xtatadi va kunning oxirida limit tiklanadi.</p>
+<div class="tip">💡 Tarif o'zgartirish uchun kamida 7 kunlik mablag' balansingizda bo'lishi shart. Masalan, yangi tarifning kunlik narxi 500 so'm bo'lsa — kamida 3,500 so'm balansingizda bo'lishi kerak.</div></section>
+
+<section><div class="h"><div class="n">6</div><div><b>To'lov, balans va referral tizimi</b><span>Pul kiritish usullari, bonuslar va qaytarish siyosati</span></div></div>
+<p><span class="c">6.1</span><b>Balans tizimi.</b> Xizmatda O'zbek so'mi (UZS) asosida shaxsiy balans yuritiladi. Barcha to'lovlar balansingizdan kunlik yechiladi. Balansni to'ldirish quyidagi usullar orqali amalga oshiriladi:</p>
+<ul><li><b>Karta to'lovi (ALEX PAY)</b> — O'zbekiston bank kartalari orqali to'ldirish. Karta orqali to'ldirishda <b>+5% bonus</b> taqdim etiladi (masalan, 100,000 so'm to'lasangiz, balansingizga 105,000 so'm tushadi)</li><li><b>Boshqa to'lov usullari</b> — qo'shimcha usullar platformada e'lon qilinadi</li></ul>
+<p><span class="c">6.2</span><b>Referral (taklif) tizimi.</b> O'z referral havolangiz orqali yangi foydalanuvchilarni taklif qilsangiz, ular xizmatdan foydalanishni boshlagandan so'ng balansingizga avtomatik mukofot puli tushadi. Mukofot miqdori platformada ko'rsatiladi (hozirda 300 so'm). Referral mukofotlari loyiha yaratish uchun balansdan foydalanish mumkin.</p>
+<p><span class="c">6.3</span><b>Kunlik hisoblanish.</b> Loyiha aktiv bo'lgan har bir kuni uchun kunlik tarif narxi balansingizdan avtomatik yechiladi. Agar balans yetarli bo'lmasa, loyiha to'xtatiladi va ogohlantirish yuboriladi.</p>
+<p><span class="c">6.4</span><b>Muddatni uzaytirish.</b> Loyiha muddatini uzaytirish uchun kamida 7 kunlik mablag' balansingizda bo'lishi shart. Muddat uzaytirish bo'yicha so'rov loyiha boshqaruv panelidagi «Muddatni uzaytirish» tugmasi orqali amalga oshiriladi.</p>
+<p><span class="c">6.5</span><b>Qaytarish siyosati:</b></p>
+<ul><li>Pul qaytarish faqat Xizmat tomonidan yuzaga kelgan texnik xatolik sababli loyiha ishlamagan holatlarda ko'rib chiqiladi</li><li>Trial (sinov) davrida sarflangan mablag'lar qaytarilmaydi</li><li>Foydalanuvchi xatosi (noto'g'ri token, loyiha o'chirilishi va h.k.) natijasida yo'qolgan mablag'lar qaytarilmaydi</li><li>Qoidabuzarlik sababli bloklangan hisoblar uchun balans qaytarilmaydi</li><li>Qaytarish talabi uchun <a href="https://t.me/AlexBuilderChat">@AlexBuilderChat</a> ga murojaat qiling — 48 soat ichida ko'rib chiqiladi</li></ul>
+<p><span class="c">6.6</span><b>Balansni naqd qilish.</b> Balansingizdagi mablag'larni naqd pul yoki boshqa tizimga o'tkazish imkoni mavjud emas — balans faqat Alex Builder xizmatlarini to'lash uchun ishlatiladi.</p></section>
+
+<section><div class="h"><div class="n">7</div><div><b>Trial (sinov) davri va loyiha yaratish jarayoni</b><span>Bepul davr, to'xtatilish va o'chirish mexanizmi</span></div></div>
+<p><span class="c">7.1</span><b>Sinov davri.</b> Har bir yangi loyiha yaratilganda <b>3 kunlik bepul trial</b> taqdim etiladi. Bu davr ichida loyiha to'liq faoliyat ko'rsatadi va balansingizdan mablag' yechilmaydi.</p>
+<p><span class="c">7.2</span><b>Skript narxi.</b> Loyiha yaratish jarayonida bir martalik skript narxi to'lanishi mumkin. Birinchi loyiha uchun ushbu narx 0 so'm bo'lishi mumkin (skript shartlariga qarab). Keyingi loyihalar uchun skript narxi ko'rsatiladi.</p>
+<p><span class="c">7.3</span><b>Trial tugagandan keyin quyidagi ketma-ketlik amalga oshadi:</b></p>
+<div class="tw"><table><tr><th>Muddat</th><th>Loyiha holati</th><th>Nima bo'ladi</th></tr>
+<tr><td>0–7 kun</td><td><span class="p g">Aktiv</span></td><td>Loyiha to'liq ishlaydi, to'lov yo'q</td></tr>
+<tr><td>7–14 kun</td><td><span class="p o">To'xtatilgan</span></td><td>Loyiha to'xtatiladi, ma'lumotlar saqlanadi, ogohlantirish yuboriladi</td></tr>
+<tr><td>14-kun</td><td><span class="p r">O'chirilgan</span></td><td>Barcha ma'lumotlar, fayllar, webhook va skript butunlay o'chiriladi</td></tr></table></div>
+<div class="warn" style="margin-top:0">⚠️ <b style="color:inherit">Diqqat:</b> O'chirilgandan so'ng loyiha ma'lumotlari (foydalanuvchilar bazasi, balanslar, sozlamalar, webhook, skript fayllari) tiklanmaydi. Muddatni o'z vaqtida uzaytirishni unutmang.</div>
+<p><span class="c">7.4</span>Trial davrida ham Foydalanuvchi ushbu Shartlarning barcha qoidalariga rioya qilishi shart. Trial davri taqiqlangan faoliyat uchun «imtiyoz» bermaydigan sinov imkoniyatidir.</p></section>
+
+<section><div class="h"><div class="n">8</div><div><b>Egallik, kontent va intellektual mulk</b><span>Kim nimaga ega va kim javobgar</span></div></div>
+<p><span class="c">8.1</span><b>Loyiha egasi.</b> Loyiha yaratgan foydalanuvchi uning qonuniy egasi hisoblanadi va Telegram ID (chat_id) orqali aniqlanadi. Loyiha egasini o'zgartirish platformada «Egasini o'tkazish» funksiyasi orqali amalga oshiriladi — yangi eganing Telegram ID si kiritiladi.</p>
+<p><span class="c">8.2</span><b>Kontent mas'uliyati.</b> Loyihangiz orqali tarqatiladigan barcha kontent — filmlar, raqamlar, sovg'alar, xabarlar, reklamalar — to'liq Sizning mas'uliyatingizda. Xizmat kontent sifati yoki qonuniyligini tekshirmaydi, ammo shikoyat kelib tushganda loyihani to'xtatish huquqini saqlaydi.</p>
+<p><span class="c">8.3</span><b>Skriptlar va platforma intellektual mulki.</b> Alex Builder tomonidan ishlab chiqilgan skriptlar, algoritm va platforma kodi Xizmatning intellektual mulki hisoblanadi. Ularni reverse-engineer qilish, nusxalash, qayta tarqatish yoki tijoriy maqsadlarda ishlatish taqiqlanadi.</p>
+<p><span class="c">8.4</span><b>Foydalanuvchi ma'lumotlari.</b> Loyihangiz to'plagan foydalanuvchilar ma'lumotlari (SQL bazasi) sizga tegishli, ammo Xizmat serverida joylashgan. Xizmat ushbu ma'lumotlarga faqat texnik xizmat ko'rsatish maqsadida kirishi mumkin.</p>
+<p><span class="c">8.5</span><b>Zaxiralash.</b> Xizmat loyihangizning ma'lumotlarini avtomatik ravishda <b>kuniga 2 marta</b> zaxiralaydi va so'nggi <b>7 kunlik</b> nusxalar saqlanadi. Foydalanuvchi mustaqil ravishda …</p></section>
+<!-- 9-BO'LIM: skrinshot yuborilmagan, shu yerga qo'shiladi -->
+<section><div class="h"><div class="n">10</div><div><b>Maxfiylik va ma'lumotlar himoyasi</b><span>Qanday ma'lumotlar to'planadi va qanday ishlatiladi</span></div></div>
+<p><span class="c">10.1</span><b>To'planadigan ma'lumotlar.</b> Xizmat foydalanuvchi haqida quyidagi ma'lumotlarni saqlaydi: Telegram ID, ism, balans, yaratilgan loyihalar ro'yxati, to'lov tarixi va referral ma'lumotlari.</p>
+<p><span class="c">10.2</span><b>Foydalanish maqsadi.</b> To'plangan ma'lumotlar faqat xizmat ko'rsatish, bildirishnoma yuborish, to'lovlarni hisoblash va qoidabuzarliklarni aniqlash maqsadida ishlatiladi.</p>
+<p><span class="c">10.3</span><b>Uchinchi taraflarga o'tkazish.</b> Foydalanuvchi ma'lumotlari hech qachon tijorat maqsadida sotilmaydi. Faqat quyidagi holatlarda uchinchi taraflarga o'tkazilishi mumkin: huquqni muhofaza qiluvchi organlarning rasmiy talabiga ko'ra; to'lov provayderlari (karta to'lovi uchun minimal zaruriy ma'lumot); xizmatni ko'rsatish uchun jalb qilingan ishonchli texnik hamkorlar.</p>
+<p><span class="c">10.4</span><b>Ma'lumotlarni o'chirish.</b> Hisobingizni to'liq o'chirishni yoki ma'lumotlaringizni eksport qilishni xohlasangiz — <a href="mailto:supportalexbuilder@gmail.com">supportalexbuilder@gmail.com</a> yoki <a href="https://t.me/AlexBuilderChat">@AlexBuilderChat</a> ga yozing. So'rov 7 kun ichida ko'rib chiqiladi.</p>
+<p><span class="c">10.5</span><b>Cookie va kuzatuv.</b> Veb-sahifamiz (<a href="https://alexbuilder.app">alexbuilder.app</a>) asosiy ishlash uchun zarur minimal cookie fayllardan foydalanadi. Uchinchi tomon analitika yoki reklama cookie-lari ishlatilmaydi.</p>
+<div class="ok">🔒 Biz sizning shaxsiy ma'lumotlaringizni hech qachon sotmaymiz, reklama maqsadida ishlatmaymiz va ruxsatsiz uchinchi taraflarga bermaymiz.</div>
+</section>
+<section><div class="h"><div class="n">11</div><div><b>Xizmat cheklovlari va javobgarlikni cheklash</b><span>Kafolatlar va cheklovlar</span></div></div>
+<p><span class="c">11.1</span><b>Xizmat kafolatlari.</b> Xizmat barqaror va uzluksiz ishlashga intiladi, ammo quyidagilarni kafolat bermaydi:</p>
+<ul><li>Uzluksiz xizmat (hosting serveri, Telegram API, internet uzilishi bo'lishi mumkin)</li><li>Ma'lumotlar yo'qolishidan to'liq himoya (backup mavjud, ammo tiklash faqat xatolik yoki kelishuv asosida amalga oshiriladi)</li><li>Telegram-ning o'z qoidalari o'zgarishi natijasida loyiha ishlashining davom etishi</li><li>Har qanday xatolikdan to'liq xoli bo'lish</li></ul>
+<p><span class="c">11.2</span><b>Javobgarlik cheklovi.</b> Alex Builder quyidagi yo'qotishlar uchun hech qanday holatda javobgar emas:</p>
+<ul><li>Loyiha orqali yo'qotilgan daromad yoki foyda</li><li>Foydalanuvchilar bazasi yo'qolishi</li><li>Obro' va biznesga yetkazilgan zarar</li><li>Bilvosita yoki oqibatdagi (consequential) zararlar</li><li>Telegram platformasi yoki uchinchi tomon API xatolaridan kelib chiqqan yo'qotishlar</li></ul>
+<p><span class="c">11.3</span><b>Maksimal javobgarlik.</b> Har qanday holatda Xizmatning jami javobgarligi so'nggi 30 kun ichida Foydalanuvchi to'lagan summadan oshmasligi kerak.</p>
+<p><span class="c">11.4</span><b>Force majeure.</b> Xizmat tabiiy ofatlar, urush, epidemiya, hukumat tomonidan blok yoki boshqa nazorat qilib bo'lmaydigan holatlar tufayli yuzaga kelgan uzilishlar uchun javobgar emas.</p>
+<p><span class="c">11.5</span><b>Telegram API o'zgarishlari.</b> Telegram o'z qoidalari yoki API ni o'zgartirsa va bu loyihalar ishlashiga ta'sir qilsa, Xizmat iloji boricha tezda yangilanishni chiqaradi, ammo bu davr ichidagi loyihaning ishlamasligiga javobgar emas.</p>
+</section>
+<section><div class="h"><div class="n">12</div><div><b>Nizolarni hal etish va qonuniy asoslar</b><span>Kelishmovchiliklar qanday hal qilinadi</span></div></div>
+<p><span class="c">12.1</span><b>Muzokaralar.</b> Birinchi navbatda har qanday nizo yoki kelishmovchilik <a href="https://t.me/AlexBuilderChat">@AlexBuilderChat</a> yoki <a href="mailto:supportalexbuilder@gmail.com">supportalexbuilder@gmail.com</a> orqali murojaat qilib, tomonlar o'rtasida muzokara yo'li bilan hal etiladi.</p>
+<p><span class="c">12.2</span><b>Sud tartibi.</b> Muzokara orqali hal bo'lmagan nizolar O'zbekiston Respublikasining amaldagi qonunchiligiga muvofiq O'zbekiston sudlarida ko'rib chiqiladi.</p>
+<p><span class="c">12.3</span><b>Amaldagi qonunchilik.</b> Ushbu Shartlar O'zbekiston Respublikasi qonunlari, jumladan «Elektron tijorat», «Axborot xavfsizligi» va «Shaxsiy ma'lumotlar» to'g'risidagi qonunlar asosida tartibga solinadi.</p>
+<p><span class="c">12.4</span><b>Shartlarning bo'linuvchanligi.</b> Agar ushbu Shartlarning biror qismi qonunga zid deb topilsa, qolgan qismlar o'z kuchida qoladi.</p>
+</section>
+<section><div class="h"><div class="n">13</div><div><b>Shartlarni yangilash va xizmat o'zgarishlari</b><span>Qanday va qachon o'zgaradi</span></div></div>
+<p><span class="c">13.1</span>Xizmat ushbu Shartlarni istalgan vaqtda yangilash huquqini saqlaydi. Muhim o'zgarishlar haqida Foydalanuvchilarga <a href="https://t.me/AlexBuilderBot">@AlexBuilderBot</a> orqali kamida <b>7 kun oldin</b> ogohlantirish yuboriladi.</p>
+<p><span class="c">13.2</span>Yangilangan shartlar e'lon qilinganidan so'ng xizmatdan foydalanishni davom ettirish — yangi shartlarni qabul qilgan deb hisoblanadi.</p>
+<p><span class="c">13.3</span><b>Xizmatni to'liq to'xtatish.</b> Agar Xizmat faoliyatini to'liq to'xtatish zaruriyati tug'ilsa, Foydalanuvchilarga kamida <b>30 kun oldin</b> xabar beriladi. Bu davr ichida ma'lumotlaringizni eksport qilish imkoni bo'ladi. Balansda qolgan mablag'lar qaytarish tartibi alohida e'lon qilinadi.</p>
+<p><span class="c">13.4</span><b>Texnik ta'mirlash (maintenance).</b> Rejalashtirilgan texnik ishlar oldindan e'lon qilinadi. Favqulodda ta'mirlash ishlari esa imkon qadar tezda hal etiladi. Bunday uzilishlar uchun kompensatsiya ko'zda tutilmagan.</p>
+<p><span class="c">13.5</span>Ushbu Shartlarning joriy versiyasi doim <a href="https://alexbuilder.app/terms">alexbuilder.app/terms</a> sahifasida mavjud bo'ladi. Sahifa yuqorisidagi sana — oxirgi yangilanish sanasini bildiradi.</p>
+</section>
+<section><div class="h"><div class="n">14</div><div><b>Aloqa va qo'llab-quvvatlash</b><span>Murojaat qilish yo'llari</span></div></div>
+<p><span class="c">14.1</span>Texnik yordam, hisob-kitob savollari, shikoyat yoki huquqiy masalalar bo'yicha quyidagi kanallar orqali murojaat qiling:</p>
+<a class="ct" href="https://t.me/AlexBuilderChat"><span>💬</span><div><small>Telegram Support</small><b>@AlexBuilderChat</b></div></a>
+<a class="ct" href="https://t.me/AlexBuilderBot"><span>🤖</span><div><small>Asosiy bot</small><b>@AlexBuilderBot</b></div></a>
+<a class="ct" href="mailto:supportalexbuilder@gmail.com"><span>📧</span><div><small>Elektron pochta</small><b>supportalexbuilder@gmail.com</b></div></a>
+<a class="ct" href="https://alexbuilder.app"><span>🌐</span><div><small>Veb-sayt</small><b>alexbuilder.app</b></div></a>
+<p><span class="c">14.2</span><b>Javob vaqti:</b> Oddiy so'rovlar — ish soatlarida (09:00–22:00, Toshkent vaqti) 7–48 soat ichida. Jiddiy texnik muammolar va xavfsizlik buzilishlari — imkon qadar tezroq. Telegram orqali murojaat eng tez natija beradi.</p>
+<p><span class="c">14.3</span><b>Xavfsizlik muammolari.</b> Xizmatda zaiflik yoki xavfsizlik muammosini aniqlaganingizda darhol <a href="mailto:supportalexbuilder@gmail.com">supportalexbuilder@gmail.com</a> ga xabar bering. Ommaviy e'lon qilishdan oldin bizga tuzatish imkoniyatini bering.</p>
+<p><span class="c">14.4</span><b>Dasturchi:</b> <a href="https://t.me/asadullo_aura">@asadullo_aura</a> (texnik masalalar bo'yicha bevosita murojaat uchun).</p>
+</section>
+</main>
+<footer><hr><p>Ushbu shartlarni o'qib chiqib, <b>qabul qildingiz</b> deb hisoblanasiz.<br>Oxirgi yangilanish: <b>3 Noyabr, 2026</b> &nbsp;·&nbsp; Versiya 2.0 &nbsp;·&nbsp; <a href="https://alexbuilder.app">Alex Builder</a></p>
+<div>© 2026 Alex Builder &nbsp;·&nbsp; <a href="https://t.me/AlexBuilderBot">@AlexBuilderBot</a> &nbsp;·&nbsp; <a href="https://t.me/AlexBuilderChat">Qo'llab-quvvatlash</a> &nbsp;·&nbsp; <a href="mailto:supportalexbuilder@gmail.com">supportalexbuilder@gmail.com</a></div></footer>
+<script>
+const M=`Menyu|🧩 Tugmalar va ichki bo'limlar: Cheksiz;✅ 🖼 Matn, rasm, video, fayl, audio;✅ 📢 Majburiy obuna;✅ 📣 Xabar yuborish`;
+const mf=M.split('|')[1];
+const B=[
+["🎬","Kino Bot",[
+"🎬 Ushbu tizim orqali siz kinolarni botga yuklaysiz va ularga maxsus kod biriktirasiz. Foydalanuvchilar shu kod orqali kinoni tez va oson yuklab olishlari mumkin.",
+"📊 Bot ichida foydalanuvchilar statistikasi (kunlik, haftalik, oylik), yuklanishlar va faollikni kuzatish imkoniyati mavjud. Shuningdek, oddiy va forward xabarlar yuborish orqali auditoriya bilan ishlashingiz mumkin.",
+"🔒 Tizim majburiy obuna (kanalga ulanish), reklama joylash, premium obuna orqali yopiq kontent berish va zayavkalarni boshqarish imkoniyatlarini ham taqdim etadi.",
+"⚙️ Barcha boshqaruv admin panel orqali amalga oshiriladi."],
+"🚀 Start|9 000|300|👥 300 ta foydalanuvchi kuniga;⚡️ Javob tezligi: ~0.5s#⭐ Standard|18 000|600|👥 1 000 ta foydalanuvchi kuniga;⚡️ Javob tezligi: ~0.4s#💎 Pro 🔥|35 000|1 166|👥 3 000 ta foydalanuvchi kuniga;⚡️ Javob tezligi: ~0.3s#⚡ Turbo|55 000|1 833|👥 7 500 ta foydalanuvchi kuniga;⚡️ Javob tezligi: ~0.2s#🔥 Ultra|80 000|2 666|👥 15 000 ta foydalanuvchi kuniga;⚡️ Javob tezligi: ~0.1s#♾️ Unlimited|120 000|4 000|👥 Cheksiz foydalanuvchi kuniga;⚡️ Javob tezligi: ~0s"],
+["⭐️","Stars Bot",[
+"⭐️ Ushbu bot orqali siz Telegram Stars va Premium obunalarni sotasiz. Mijoz tarifni tanlaydi, profil userini kiritadi va buyurtma darhol rasmiylashtiriladi.",
+"⚡️ Buyurtmalar ikki xil bajariladi: qo'lda (admin tasdiqlaydi) yoki avtomatik — hamyon ulanganda Fragment orqali Stars mijozga o'zi yetkaziladi, siz uxlab yotganingizda ham.",
+"🎨 Dizayn bo'limi orqali botdagi har bir matn va tugma nomini o'zgartirasiz, custom emoji qo'yasiz va tugmalarga rang berasiz. Ikki xil ko'rinish: klassik va zamonaviy.",
+"🌐 Web panel — statistika, mijozlar, buyurtmalar, to'lovlar va tariflarni telefon orqali boshqarish.",
+"📊 Statistika, majburiy obuna, referal tizimi, ommaviy xabar yuborish va foydalanuvchilarni boshqarish — barchasi admin panel orqali."],
+"🚀 Start|15 000|500|🛍 Buyurtma limiti: 100 ta/kun;⭐️ Stars sotish;✅ Web admin panel: buyurtmalarni boshqarish;❌ Premium sotish;❌ Auto rejim (Fragment)#💎 Pro 🔥|35 000|1 166|🛍 Buyurtma limiti: 500 ta/kun;⭐️ Stars sotish;✅ 💎 Premium sotish;✅ ⚡️ Auto rejim — Fragment orqali;✅ Web admin panel: mijoz va tariflarni boshqarish#🚀 Premium|50 000|1 666|🛍 Buyurtma limiti: 2 000 ta/kun;⭐️ Stars sotish;💎 Premium sotish;⚡️ Auto rejim — Fragment orqali;✅ Web admin panel: to'liq boshqaruv#🛍 Business|85 000|2 833|🛍 Buyurtma limiti: Cheksiz;⭐️ Stars sotish;💎 Premium sotish;⚡️ Auto rejim — Fragment orqali;✅ Web panel: to'liq boshqaruv"],
+["🗣","Referal Bot",[
+"💸 Ushbu bot orqali foydalanuvchilar referal havola orqali yangi odamlarni taklif qilib, pul ishlashlari mumkin.",
+"📊 Bot ichida foydalanuvchilar statistikasi (kunlik, haftalik, oylik qo‘shilishlar) va ularning faolligini kuzatish imkoniyati mavjud. Shuningdek, oddiy va forward xabarlar yuborish orqali auditoriya bilan ishlash mumkin.",
+"🔒 Tizim majburiy obuna (ommaviy, shaxsiy va zayavka orqali), to‘lov tizimlarini ulash va boshqarish, hamda telefon raqami orqali ro‘yxatdan o‘tishni sozlash imkoniyatlarini taqdim etadi.",
+"⚙️ Barcha jarayonlar admin panel orqali to‘liq nazorat qilinadi va boshqariladi."],
+"🚀 Start|9 000|300|👥 1000 ta foydalanuvchi kuniga;⚡️ Javob tezligi: ~0.4s#⭐️ Standard|15 000|500|👥 2 000 ta foydalanuvchi kuniga;⚡️ Javob tezligi: ~0.3s#💎 Pro 🔥|30 000|1 000|👥 5 000 ta foydalanuvchi kuniga;⚡️ Javob tezligi: ~0.2s#🔥 Ultra|50 000|1 666|👥 10 000 ta foydalanuvchi kuniga;⚡️ Javob tezligi: ~0.1s#♾️ Unlimited|80 000|2 666|👥 Cheksiz foydalanuvchi kuniga;⚡️ Javob tezligi: ~0s"],
+["🗳","OpenBudget Bot",[
+"Ushbu bot Open Budget loyihalari uchun ovoz (vote) yig‘ish uchun mo‘ljallangan.",
+"Bot orqali foydalanuvchilarni kerakli yo‘nalishga yo‘naltirish, ularning faolligini kuzatish va statistikani tahlil qilish mumkin. Shuningdek, majburiy obuna orqali kanalga ulanishni talab qilish va shu orqali auditoriyani oshirish imkoniyati mavjud.",
+"Admin panel orqali kanallarni ulash, xabarlar yuborish va barcha jarayonlarni boshqarish juda oson va qulay."],
+"⭐️ Standard|15 000|500|"],
+["🚀","Nakrutka Bot",[
+"Ushbu bot orqali siz SMM xizmatlarini qulay interfeys orqali sotishingiz va barcha jarayonlarni avtomatlashtirishingiz mumkin.",
+"Bot cheksiz SMM API xizmatlarini ulash, xizmatlarni avtomatik yuklab olish va narx, minimal hamda maksimal miqdorlarni real vaqt rejimida yangilash imkoniyatiga ega. Shuningdek, foyda foizini moslashuvchan tarzda sozlash orqali daromadni to‘liq nazorat qilishingiz mumkin.",
+"Statistika bo‘limi orqali kunlik, haftalik va oylik ko‘rsatkichlar hamda buyurtmalar bo‘yicha to‘liq tahlilni kuzatish mumkin. Oddiy va forward xabarlar orqali foydalanuvchilar bilan ishlash imkoniyati mavjud.",
+"Tizim majburiy obuna kanallari, to‘lov tizimlari, xizmatlar joylashuvi va foydalanuvchilarni boshqarish kabi barcha zarur funksiyalarni o‘z ichiga oladi.",
+"Barcha sozlamalar yagona admin panel orqali tez va qulay boshqariladi."],
+"🚀 Start|15 000|500|🛍 Buyurtma limiti: 500 ta/kun;🔑 API ulash limiti: 3 ta;📦 Xizmatlar soni: 50 tagacha;❌ Narxlarni avto yangilash;❌ SMM API berish;❌ Raqam sotish;❌ Stars / Premium sotish;❌ Web admin panel#💎 Pro 🔥|35 000|1 166|🛍 Buyurtma limiti: 2 500 ta/kun;🔑 API ulash limiti: 10 ta;📦 Xizmatlar soni: Cheksiz;✅ Narxlarni avto yangilash;✅ SMM API berish;✅ Raqam sotish;✅ Stars / Premium sotish;❌ Web admin panel#🚀 Premium|50 000|1 666|🛍 Buyurtma limiti: 5 000 ta/kun;🔑 API ulash limiti: 20 ta;📦 Xizmatlar soni: Cheksiz;✅ Narxlarni avto yangilash;✅ SMM API berish;✅ Raqam sotish;✅ Stars / Premium sotish;✅ Web admin panel#🛍 Business|85 000|2 833|🛍 Buyurtma limiti: Cheksiz;🔑 API ulash limiti: Cheksiz;📦 Xizmatlar soni: Cheksiz;✅ Narxlarni avto yangilash;✅ SMM API berish;✅ Raqam sotish;✅ Stars / Premium sotish;✅ Web admin panel"],
+["🔐","VipKanal Bot",[
+"Ushbu bot orqali siz VIP kanal yoki guruhlarga pullik obunalarni sotishingiz va foydalanuvchilarni avtomatik boshqarishingiz mumkin.",
+"Foydalanuvchi to‘lovni amalga oshirgandan so‘ng kanal yoki guruhga avtomatik qo‘shiladi, obuna muddati tugagach esa tizim tomonidan avtomatik chiqariladi.",
+"Bot ichida foydalanuvchilar statistikasi (kunlik, haftalik, oylik) va obuna sotib olganlar haqida to‘liq ma’lumotlarni kuzatish mumkin. Shuningdek, oddiy va forward xabarlar yuborish orqali foydalanuvchilar bilan aloqani boshqarish imkoniyati mavjud.",
+"Tizim majburiy obuna kanallari, zayavkalarni boshqarish, tarif va narxlarni sozlash hamda to‘lov tizimlarini ulash imkoniyatlarini taqdim etadi.",
+"Barcha sozlamalar admin panel orqali oson va tez boshqariladi."],
+"🆓 Standard|15 000|500|#💎 Pro 🔥|35 000|1 166|"],
+["📞","Aloqa Bot",[
+"📞 Ushbu aloqa boti orqali siz foydalanuvchilardan murojaatlar qabul qilishingiz, support xizmatini boshqarishingiz va mijozlar bilan tezkor aloqa o‘rnatishingiz mumkin.",
+"📊 Bot admin panel, statistika, ommaviy xabar yuborish va bir nechta admin ulash funksiyalarini qo‘llab-quvvatlaydi.",
+"⚡ Tizim yuqori tezlikda ishlaydi va support xizmatlari, online bizneslar hamda Telegram loyihalari uchun juda qulay yechim hisoblanadi"],
+"⭐ Start|15 000|500|✅ Javob tezligi: ~0.3s#🚀 Standard|25 000|833|✅ Javob tezligi: ~0.2s#💎 Pro|50 000|1 666|✅ Javob tezligi: ~0s"],
+["🚕","Taxi Bot",[
+"🚖 Ushbu tizim orqali foydalanuvchilar bot orqali tez va oson taxi yoki pochta buyurtma berishlari mumkin. Buyurtmalar avtomatik tarzda haydovchilar guruhiga yuboriladi.",
+"👥 Foydalanuvchi qayerdan-qayerga ketishini, yo'lovchilar sonini va telefon raqamini kiritadi. Buyurtma yashirin holatda guruhga yuboriladi — mijozning to'liq ma'lumoti faqat buyurtmani olgan haydovchining lichkasiga keladi.",
+"🚗 Haydovchi buyurtmani olib, bosqichma-bosqich holatini yangilab boradi: \"Yo'lga chiqdim\" → \"Yetib keldim\" → \"Yakunlandi\". Har bir bosqichda mijozga avtomatik xabar yetib boradi.",
+"📊 Bot ichida foydalanuvchilar va buyurtmalar statistikasi (kunlik, haftalik), holat bo'yicha taqsimot va turi bo'yicha hisobot mavjud. Adminlar buyurtmalarni filter qilib ko'rib, kerak bo'lsa bekor qila olishadi.",
+"🔒 Tizim majburiy obuna (kanalga ulanish), bir nechta guruhga bir vaqtning o'zida yuborish va ko'p tilli matnlar (admin panel orqali tahrirlash) imkoniyatlarini taqdim etadi.",
+"⚙️ Barcha boshqaruv admin panel orqali amalga oshiriladi."],
+"🚀 Start|15 000|500|🚖 Buyurtma limiti: 200 ta/kun;👥 Haydovchilar guruhi: 3 ta;📍 Yo'nalishlar: 25 ta;⚡ Javob tezligi: ~0.5s#⭐ Standard|35 000|1 166|🚖 Buyurtma limiti: 1 000 ta/kun;👥 Haydovchilar guruhi: 7 ta;📍 Yo'nalishlar: 25 ta;⚡ Javob tezligi: ~0.3s#💎 Pro 🔥|65 000|2 166|🚖 Buyurtma limiti: 5 000 ta/kun;👥 Haydovchilar guruhi: 20 ta;📍 Yo'nalishlar: 100 ta;⚡ Javob tezligi: ~0.1s#⚡ Turbo|90 000|3 000|🚖 Buyurtma limiti: 10 000 ta/kun;👥 Haydovchilar guruhi: 35 ta;📍 Yo'nalishlar: 250 ta;⚡ Javob tezligi: ~0.05s#🔥 Business|120 000|4 000|🚖 Buyurtma limiti: Cheksiz;👥 Haydovchilar guruhi: Cheksiz;📍 Yo'nalishlar: Cheksiz;⚡ Javob tezligi: ~0s"],
+["📝","Anketa Bot",[
+"📝 Ushbu tizim orqali siz istalgan miqdorda savollar yaratasiz va foydalanuvchilardan ketma-ket javob yig'asiz. Har bir savol turi alohida — matn, telefon, raqam yoki tanlov ko'rinishida bo'lishi mumkin.",
+"📊 Bot ichida to'ldirilgan formalar soni, kunlik va haftalik statistika, hamda barcha javoblarni Excel yoki CSV formatida yuklab olish imkoniyati mavjud.",
+"🔒 Tizim majburiy obuna (kanalga ulanish), 1 marta to'ldirish chekovi, jami limit (masalan faqat 20 ta odam) va anketalarni tozalash imkoniyatlarini ham taqdim etadi.",
+"⚙️ Barcha boshqaruv admin panel orqali amalga oshiriladi."],
+"⭐ Standard|15 000|500|👮 Adminlar: 1 ta;📝 Javoblar: 1 000 ta#💎 Pro|30 000|1 000|👮 Adminlar: 5 ta;📝 Javoblar: 10 000 ta#⚡️ Turbo|50 000|1 666|👮 Adminlar: 10 ta;📝 Javoblar: 50 000 ta#♾️ Unlimited|75 000|2 500|👮 Adminlar: Cheksiz;📝 Javoblar: Cheksiz"],
+["🏆","Konkurs Bot",[
+"🏆 Referal asosidagi konkurs boti. Siz sovrinlarni belgilaysiz, ishtirokchilar esa o'zining shaxsiy taklif havolasi orqali do'stlarini chaqiradi — kim ko'proq odam taklif qilsa, o'sha g'olib bo'ladi.",
+"🎁 Sovrinlar har bir o'rin uchun alohida kiritiladi: 1-o'ringa bitta, 2-o'ringa boshqasi. Konkurs yakunlanganda bot g'oliblarni ball bo'yicha o'zi aniqlaydi, har biriga aynan o'z sovrinini yozib xabar yuboradi va natijani kanalga e'lon qiladi.",
+"⏱ Tugash sanasi belgilansa, konkurs o'sha kuni avtomatik yakunlanadi — admin kutib o'tirishi shart emas.",
+"🔒 Ball faqat taklif qilingan do'st to'liq ro'yxatdan o'tganda beriladi: telefon raqami yuborilgan va majburiy obuna bajarilgan bo'lishi kerak. Qurilma tekshiruvi esa bitta telefondan bir nechta akkaunt ochib ball yig'ishning oldini oladi.",
+"🌐 Boshqaruv Telegram ichidagi web panel orqali: konkurs, ishtirokchilar reytingi, majburiy obuna kanallari, statistika va reklama tarqatish — hammasi bir joyda. Ishtirokchilar ro'yxatida Telegram profil rasmlari ham ko'rinadi.",
+"🎨 Botdagi tugma nomlari, xabar matnlari, tugma ranglari va custom emojilarni o'zingizga moslab o'zgartirasiz — matnni odatdagidek yozasiz, formatlash saqlanib qoladi."],
+"🚀 Start|7 000|233|👥 500 ta foydalanuvchi kuniga;🏆 Konkurs ishtirokchisi: 1 000 ta;⚡️ Javob tezligi: ~0.5s;❌ Taklif himoyasi (qurilma tekshiruvi)#⭐ Standard|15 000|500|👥 1 500 ta foydalanuvchi kuniga;🏆 Konkurs ishtirokchisi: 5 000 ta;⚡️ Javob tezligi: ~0.4s;❌ Taklif himoyasi (qurilma tekshiruvi)#💎 Pro 🔥|29 000|966|👥 4 000 ta foydalanuvchi kuniga;🏆 Konkurs ishtirokchisi: 15 000 ta;⚡️ Javob tezligi: ~0.3s;✅ Taklif himoyasi (qurilma tekshiruvi)#⚡ Turbo|55 000|1 833|👥 10 000 ta foydalanuvchi kuniga;🏆 Konkurs ishtirokchisi: 50 000 ta;⚡️ Javob tezligi: ~0.2s;✅ Taklif himoyasi (qurilma tekshiruvi)#🔥 Ultra|79 000|2 633|👥 20 000 ta foydalanuvchi kuniga;🏆 Konkurs ishtirokchisi: 150 000 ta;⚡️ Javob tezligi: ~0.1s;✅ Taklif himoyasi (qurilma tekshiruvi)#♾️ Unlimited|129 000|4 300|👥 Cheksiz foydalanuvchi kuniga;🏆 Konkurs ishtirokchisi: Cheksiz;⚡️ Javob tezligi: ~0s;✅ Taklif himoyasi (qurilma tekshiruvi)"],
+["📋","Menyu Bot",[
+"📋 Menyu Bot — tugmalar konstruktori. Admin panelda «🧩 Menyular» bo'limida tugmalar yaratasiz, bot foydalanuvchiga ularni pastki klaviatura ko'rinishida ko'rsatadi. Kompaniya haqida ma'lumot, xizmatlar va narxlar, manzil, savol-javob, yo'riqnomalar — hammasi bir botda.",
+"🧩 Har bir tugma ichida yana tugmalar bo'lishi mumkin — chuqurlik cheklanmagan («Xizmatlar → Dizayn → Logotip»). Tugmalar tartibi, qatordagi soni, rangi (style) va premium emoji ikonkasi o'zgartiriladi. «🔙 Orqaga» va «🏠 Bosh menyu» avtomatik qo'shiladi.",
+"🖼 Tugmaga bir nechta kontent biriktiriladi (50 tagacha): matn (formatlash saqlanadi), rasm, video, GIF, fayl, audio, ovozli xabar, dumaloq video, stiker. Xabardagi havola tugmalari ham saqlanadi. Foydalanuvchi tugmani bosganda kontentlar ketma-ket yuboriladi, har bir tugma necha marta bosilgani hisoblanadi.",
+"📢 Majburiy obuna — kanal va guruhlar (ommaviy, shaxsiy, so'rovli), botga kirishda yoki menyu tugmasi bosilganda tekshirish, so'rovlarni avtomatik qabul qilish. 📣 Ommaviy xabar yuborish (oddiy va forward, tugmalar bilan), 📊 statistika, 👮 ruxsatlari alohida sub-adminlar, 🎨 Dizayn (matnlar va tugma nomlari).",
+"⚙️ Barcha boshqaruv bot ichidagi admin panel orqali — dasturlash bilimi kerak emas."],
+"🚀 Start|15 000|500|👥 300 ta foydalanuvchi kuniga;⚡️ Javob tezligi: ~0.3s;@#⭐ Standard|25 000|833|👥 1 000 ta foydalanuvchi kuniga;⚡️ Javob tezligi: ~0.2s;@#💎 Pro 🔥|40 000|1 333|👥 3 000 ta foydalanuvchi kuniga;⚡️ Javob tezligi: ~0.1s;@#♾️ Unlimited|65 000|2 166|👥 Cheksiz foydalanuvchi kuniga;⚡️ Javob tezligi: ~0s;@"]
+];
+const $=id=>document.getElementById(id);
+$('bots').innerHTML=B.map(b=>`<details><summary>${b[0]} ${b[1]}</summary><div>${b[2].map(p=>`<p>${p}</p>`).join('')}</div></details>`).join('');
+function show(i){
+  [...$('chips').children].forEach((c,j)=>c.classList.toggle('on',i==j));
+  $('tariffs').innerHTML=B[i][3].split('#').map(t=>{
+    const [n,m,d,f]=t.split('|');
+    const ls=f.replace('@',mf).split(';').filter(Boolean);
+    return `<div class="t"><h4>${n}</h4><em>💵 Narxi: ${m} so'm/oy (${d} so'm/kun)</em>${ls.map(l=>`<i>${l}</i>`).join('')}</div>`;
+  }).join('');
+}
+$('chips').innerHTML=B.map((b,i)=>`<button>${b[0]} ${b[1]}</button>`).join('');
+[...$('chips').children].forEach((c,i)=>c.onclick=()=>show(i));
+show(0);
+</script>
+</body>
+</html>
